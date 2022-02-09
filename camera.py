@@ -39,6 +39,9 @@ class Camera(BaseCamera):
         
         model.to(device).eval()
 
+        # if you use cpu, pls use this
+        # model.to(device).float().eval()
+
         # Second-stage classifier
         classify = False
         if classify:
