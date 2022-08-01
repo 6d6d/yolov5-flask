@@ -1,14 +1,7 @@
-import random, string, urllib.request, json, getpass
 from importlib import import_module
 import os
 from flask import Flask, render_template, Response
-from flask_ngrok import run_with_ngrok
 
-password = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(20))
-
-#Ask token
-print("Copy authtoken from https://dashboard.ngrok.com/auth")
-authtoken = getpass.getpass()
 
 # import camera driver
 if os.environ.get('CAMERA'):
@@ -17,7 +10,6 @@ else:
     from camera import Camera
 
 app = Flask(__name__)
-run_with_ngrok(app)
 
 @app.route('/')
 def index():
