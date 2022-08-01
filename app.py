@@ -4,6 +4,8 @@ import os
 from flask import Flask, render_template, Response
 from flask_ngrok import run_with_ngrok
 
+password = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(20))
+
 #Ask token
 print("Copy authtoken from https://dashboard.ngrok.com/auth")
 authtoken = getpass.getpass()
