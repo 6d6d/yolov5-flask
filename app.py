@@ -1,7 +1,16 @@
+import random, string, urllib.request, json, getpass
 from importlib import import_module
 import os
 from flask import Flask, render_template, Response
 from flask_ngrok import run_with_ngrok
+
+#Download ngrok
+! wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+! unzip -qq -n ngrok-stable-linux-amd64.zip
+
+#Ask token
+print("Copy authtoken from https://dashboard.ngrok.com/auth")
+authtoken = getpass.getpass()
 
 # import camera driver
 if os.environ.get('CAMERA'):
